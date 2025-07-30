@@ -17,7 +17,7 @@ interface IssueListProps {
   onBack?: () => void;
 }
 
-export const IssueList: React.FC<IssueListProps> = ({
+export const IssueList: React.FC<IssueListProps> = ({ 
   issues,
   loading,
   error,
@@ -28,23 +28,31 @@ export const IssueList: React.FC<IssueListProps> = ({
   onNextPage,
   onPrevPage,
   onFilterChange,
-  onBack,
+  onBack
 }) => {
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'short',
-      day: 'numeric',
+      day: 'numeric'
     });
   };
 
   const renderContent = () => {
     if (loading) {
-      return <div className={styles.loadingContainer}>Loading issues...</div>;
+      return (
+        <div className={styles.loadingContainer}>
+          Loading issues...
+        </div>
+      );
     }
 
     if (error) {
-      return <div className={styles.errorContainer}>Error: {error}</div>;
+      return (
+        <div className={styles.errorContainer}>
+          Error: {error}
+        </div>
+      );
     }
 
     if (issues.length === 0) {
@@ -57,13 +65,13 @@ export const IssueList: React.FC<IssueListProps> = ({
 
     return (
       <div className={styles.gridContainer}>
-        {issues.map(issue => (
+        {issues.map((issue) => (
           <div key={issue.number} className={styles.gridItem}>
             <div className={styles.issueHeader}>
               <h3 className={styles.issueTitle}>
-                <a
-                  href={issue.html_url}
-                  target="_blank"
+                <a 
+                  href={issue.html_url} 
+                  target="_blank" 
                   rel="noopener noreferrer"
                   className={styles.issueLink}
                 >
@@ -74,19 +82,20 @@ export const IssueList: React.FC<IssueListProps> = ({
                 {issue.state}
               </span>
             </div>
-
+            
             <div className={styles.issueBody}>
               {issue.body ? (
                 <p className={styles.issueDescription}>
-                  {issue.body.length > 150
-                    ? `${issue.body.substring(0, 150)}...`
-                    : issue.body}
+                  {issue.body.length > 150 
+                    ? `${issue.body.substring(0, 150)}...` 
+                    : issue.body
+                  }
                 </p>
               ) : (
                 <p className={styles.noDescription}>No description provided</p>
               )}
             </div>
-
+            
             <div className={styles.issueMeta}>
               <span className={styles.issueNumber}>#{issue.number}</span>
               <span className={styles.issueDate}>
@@ -106,12 +115,12 @@ export const IssueList: React.FC<IssueListProps> = ({
 
   return (
     <div className={styles.container}>
-      {/* Filter and Pagination Controls - Always visible */}
+      {/* Filter and Pagination Controls */}
       <div className={styles.controlsContainer}>
         {/* Back Button and Filter Controls Row */}
         <div className={styles.topControlsRow}>
           {onBack && (
-            <button
+            <button 
               className={styles.backButton}
               onClick={onBack}
               disabled={loading}
@@ -120,7 +129,7 @@ export const IssueList: React.FC<IssueListProps> = ({
               <ArrowLeft size={20} />
             </button>
           )}
-
+          
           {/* Filter Controls */}
           {onFilterChange && (
             <div className={styles.filterControlsCenter}>
@@ -151,7 +160,7 @@ export const IssueList: React.FC<IssueListProps> = ({
           )}
           <div className={styles.spacer}></div>
         </div>
-
+        
         {/* Pagination Controls */}
         <div className={styles.paginationControls}>
           <button
@@ -161,9 +170,9 @@ export const IssueList: React.FC<IssueListProps> = ({
           >
             Prev
           </button>
-
+          
           <span className={styles.pageIndicator}>Page {currentPage}</span>
-
+          
           <button
             onClick={onNextPage}
             disabled={!hasNextPage || loading}
@@ -175,7 +184,9 @@ export const IssueList: React.FC<IssueListProps> = ({
       </div>
 
       {/* Content Area */}
-      <div className={styles.contentArea}>{renderContent()}</div>
+      <div className={styles.contentArea}>
+        {renderContent()}
+      </div>
     </div>
   );
 };

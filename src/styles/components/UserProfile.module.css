@@ -1,0 +1,43 @@
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-muted);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.userProfile:hover {
+  background-color: var(--color-brand-soft);
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.username {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.displayName {
+  font-size: 0.75rem;
+  color: var(--color-text-placeholder);
+  line-height: 1;
+}
+
+.userAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-bg-surface);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

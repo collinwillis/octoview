@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 var(--spacing-lg);
+  background-color: var(--color-bg-base);
+  border-radius: inherit;
+  box-sizing: border-box;
+}
+
+.title {
+  margin: 0 0 var(--spacing-xl) 0;
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: var(--color-text-primary);
+  text-align: center;
+}
+
+.card {
+  background-color: var(--color-bg-surface);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-2xl);
+  border: 1px solid var(--color-border-light);
+  width: 100%;
+  max-width: 36rem;
+  box-shadow: none;
+}
+
+.cardTitle {
+  margin: 0 0 var(--spacing-xl) 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.currentTokenSection {
+  margin-bottom: var(--spacing-xl);
+}
+
+.label {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.tokenDisplay {
+  padding: var(--spacing-md);
+  background-color: var(--color-bg-muted);
+  border-radius: var(--radius-md);
+  font-family:
+    'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New',
+    monospace;
+  font-size: 0.875rem;
+  color: var(--color-text-placeholder);
+  border: 1px solid var(--color-border-light);
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+}
